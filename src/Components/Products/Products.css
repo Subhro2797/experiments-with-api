@@ -1,0 +1,4 @@
+.single-product {
+    display: flex;
+    flex-wrap: wrap;
+}
