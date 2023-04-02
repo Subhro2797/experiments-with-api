@@ -1,8 +1,9 @@
 import React from 'react';
 
+
 const Header = () => {
     return (
-        <div className='container'>
+        <div className='container header '>
             <nav className="navbar navbar-expand-lg bg-body-tertiary h-100 mb-4">
                 <div className="container">
                     <a className="navbar-brand" href="#">Navbar</a>
@@ -15,8 +16,10 @@ const Header = () => {
                                 <a className="nav-link active" aria-current="page" href="#">Home</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Link</a>
+                                <a className="nav-link" href="/cart">Cart</a>
                             </li>
+
+
 
 
                         </ul>
