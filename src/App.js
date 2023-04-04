@@ -45,9 +45,8 @@ function App() {
       newCart = [...rest, exists];
     }
 
-
     setCart(newCart);
-    addToDb(selectedProduct.id)
+    addToDb(selectedProduct.id, selectedProduct.title);
   }
   return (
     <div className="App">

@@ -1,18 +1,23 @@
-const addToDb = id => {
+const addToDb = (id, title, image) => {
     let shoppingCart = getShoppingCart();
     // add quantity
-    const quantity = shoppingCart[id];
+    const quantity = shoppingCart[title];
+
+
     if (!quantity) {
-        shoppingCart[id] = 1;
+        shoppingCart[title] = 1;
+
+
+
     }
     else {
         const newQuantity = quantity + 1;
-        shoppingCart[id] = newQuantity;
+        shoppingCart[title] = newQuantity;
     }
     localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
 }
 
-const removeFromDb = id => {
+const removeFromDb = (id) => {
     const shoppingCart = getShoppingCart();
     if (id in shoppingCart) {
         delete shoppingCart[id];
