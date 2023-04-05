@@ -33,7 +33,7 @@ function App() {
   }, [products])
 
   const handleAddtoCart = (selectedProduct) => {
-    console.log(selectedProduct);
+    // console.log(selectedProduct);
     let newCart = [];
     const exists = cart.find(product => product.id === selectedProduct.id);
 
@@ -49,7 +49,7 @@ function App() {
 
     setCart(newCart);
     // addToDb(selectedProduct.id, selectedProduct.title);
-    addtolocalstorage(selectedProduct);
+    addtolocalstorage(selectedProduct, selectedProduct.id, selectedProduct.quantity);
   }
   return (
     <div className="App">

@@ -20,10 +20,10 @@ const ChosenProduct = (props) => {
                             <h6 className='text-start'><small>Eligible for free shipping</small></h6>
                             <p className='text-start'><span className='fs-6 fw-semibold '>Color: </span>Burlywood</p>
                             <div className="dropdown text-start">
-                                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button className="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Quantity
                                 </button>
-                                <ul class="dropdown-menu text-center" data-width='50px'>
+                                <ul className="dropdown-menu text-center" data-width='50px'>
                                     <li><a className="dropdown-item" href='ali'>1</a></li>
                                     <li><a className="dropdown-item" href="ali">2</a></li>
                                     <li><a className="dropdown-item" href="ali">3</a></li>

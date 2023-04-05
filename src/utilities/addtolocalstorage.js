@@ -1,8 +1,18 @@
 
 
-const addtolocalstorage = (collection) => {
+const addtolocalstorage = (collection, id, quantity) => {
     let arrayCollection = getStoredCart();
-    arrayCollection.push(collection);
+    console.log(collection);
+    let existing = arrayCollection.find(product => product.id === collection.id);
+
+    if (existing) {
+        existing.quantity += 1;
+    }
+    else {
+        arrayCollection.push(collection);
+    }
+    //adding quantity
+
     localStorage.setItem('shoppingcart', JSON.stringify(arrayCollection));
 }
 
