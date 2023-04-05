@@ -6,6 +6,8 @@ import Cart from './Components/Cart/Cart';
 import Header from './Components/Header/Header';
 import Products from './Components/Products/Products';
 import { addToDb, getShoppingCart } from './utilities/fakedb';
+import { addtolocalstorage } from './utilities/addtolocalstorage';
+
 
 
 function App() {
@@ -46,7 +48,8 @@ function App() {
     }
 
     setCart(newCart);
-    addToDb(selectedProduct.id, selectedProduct.title);
+    // addToDb(selectedProduct.id, selectedProduct.title);
+    addtolocalstorage(selectedProduct);
   }
   return (
     <div className="App">
