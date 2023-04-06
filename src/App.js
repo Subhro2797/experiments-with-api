@@ -6,7 +6,7 @@ import Cart from './Components/Cart/Cart';
 import Header from './Components/Header/Header';
 import Products from './Components/Products/Products';
 import { addToDb, getShoppingCart } from './utilities/fakedb';
-import { addtolocalstorage } from './utilities/addtolocalstorage';
+import { addtolocalstorage, getStoredCart } from './utilities/addtolocalstorage';
 
 
 
@@ -19,17 +19,32 @@ function App() {
   }, [])
 
   useEffect(() => {
-    const storedCart = getShoppingCart();
-    const savedCart = [];
-    for (const id in storedCart) {
-      const addedProduct = products.find(product => product.id == id);
-      if (addedProduct) {
-        const quantity = storedCart[id];
-        addedProduct.quantity = quantity;
-        savedCart.push(addedProduct);
-      }
-    }
-    setCart(savedCart);
+    const storedCart = getStoredCart();
+    console.log(storedCart);
+    // const savedCart = [];
+
+    // storedCart.forEach(product => {
+    //   for (const id in product) {
+    //     const addedProduct = products.find(thing => thing.id === id);
+    //     if (addedProduct) {
+    //       const quantity = product[id];
+    //       addedProduct.quantity = quantity;
+    //       savedCart.push(addedProduct);
+    //       console.log(savedCart);
+    //     }
+
+    //   }
+    // });
+
+    // for (const id in storedCart.product) {
+    //   const addedProduct = products.find(product => product.id === id);
+    //   if (addedProduct) {
+    //     const quantity = storedCart.product[id];
+    //     addedProduct.quantity = quantity;
+    //     savedCart.push(addedProduct);
+    //   }
+    // }
+    setCart(storedCart);
   }, [products])
 
   const handleAddtoCart = (selectedProduct) => {

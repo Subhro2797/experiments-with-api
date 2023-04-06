@@ -1,19 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ChosenProduct from '../ChosenProduct/ChosenProduct';
 import './Cart.css';
 
 const Cart = (props) => {
+    console.log(props);
+    const [amount, setAmount] = useState(1);
+    const [tprice, setTprice] = useState(0);
+    const [newtax, setNewtax] = useState(0);
+    const [newGtotal, setNewGotal] = useState(0);
+    const handleIncreaseButton = () => {
+        setAmount(amount + 1);
+
+    }
+    const handleDecreaseButton = () => {
+        setAmount(amount - 1);
+    }
     // console.log(props);
     const { cart } = props;
-    let total = 0;
-    let quantity = 0;
+    // console.log(cart);
+    var total = 0;
+    var quantity = 0;
     for (const product of cart) {
         quantity = quantity + product.quantity;
         total = total + product.price * product.quantity;
 
     }
-    const tax = total * 0.1;
-    const grandTotal = total + tax;
+    let tax = total * 0.1;
+    let grandTotal = total + tax;
 
     return (
         <div>
@@ -24,7 +37,12 @@ const Cart = (props) => {
 
                         <hr />
                         {
-                            cart.map(product => <ChosenProduct cart={product} key={product.id}></ChosenProduct>)
+                            cart.map(product => <ChosenProduct
+                                cart={product}
+                                amount={amount}
+                                handleDecreaseButton={handleDecreaseButton}
+                                handleIncreaseButton={handleIncreaseButton}
+                                key={product.id}></ChosenProduct>)
                         }
                     </div>
                     <div className=' order-summary col-lg-3 col-md-6 col-sm-5 border border-white border-5 rounded-3 '>

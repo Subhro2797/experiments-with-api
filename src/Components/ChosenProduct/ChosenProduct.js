@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const ChosenProduct = (props) => {
+    const [newPrice, setnewPrice] = useState(props.cart.price);
+    const { amount, handleIncreaseButton, handleDecreaseButton } = props;
 
     return (
         <div>
@@ -20,7 +22,7 @@ const ChosenProduct = (props) => {
                             <h6 className='text-start'><small>Eligible for free shipping</small></h6>
                             <p className='text-start'><span className='fs-6 fw-semibold '>Color: </span>Burlywood</p>
                             <div className="dropdown text-start">
-                                <button className="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button className="btn btn-secondary btn-sm dropdown-toggle me-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Quantity
                                 </button>
                                 <ul className="dropdown-menu text-center" data-width='50px'>
@@ -32,14 +34,18 @@ const ChosenProduct = (props) => {
                                     <li><a className="dropdown-item" href="ali">6</a></li>
                                     <li><a className="dropdown-item" href="ali">7</a></li>
                                 </ul>
+                                <button onClick={handleDecreaseButton}>-</button>
+                                <button>{amount}</button>
+                                <button onClick={handleIncreaseButton}>+</button>
                                 <span><a href="ali" className="link-primary ms-2">Delete</a></span>
                                 <span><a href="ali" className="link-primary ms-2">Save for Later</a></span>
                             </div>
-
-
-
                         </div>
                     </div>
+                </div>
+                <hr />
+                <div className='d-flex justify-content-end'>
+                    <h5 className='me-3'>{props.cart.price}</h5>
                 </div>
             </div>
         </div>

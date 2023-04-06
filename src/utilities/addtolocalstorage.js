@@ -2,7 +2,7 @@
 
 const addtolocalstorage = (collection, id, quantity) => {
     let arrayCollection = getStoredCart();
-    console.log(collection);
+    // console.log(collection);
     let existing = arrayCollection.find(product => product.id === collection.id);
 
     if (existing) {
